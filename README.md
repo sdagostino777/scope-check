@@ -14,18 +14,17 @@ This prints the active, payable assets and, right under them, the archived ones 
 tempting.
 
 ```
-$ python3 scope_check.py magic-eden
-Magic Eden (magic-eden) · submission_state=open · offers_bounties=True
+$ python3 scope_check.py example_program
+Example Corp (example_program) · submission_state=open · offers_bounties=True
 
-ACTIVE (archived:false) — 17
-  URL          dicey.com                        sev=critical  PAYABLE
-  URL          api.dicey.com                    sev=critical  PAYABLE
-  URL          magiceden.io                     sev=none      not payable
-  ...
+ACTIVE (archived:false) — 3
+  URL          app.example.com                  sev=critical  PAYABLE
+  URL          api.example.com                  sev=critical  PAYABLE
+  WILDCARD     *.example.dev                    sev=none      not payable
 
-ARCHIVED but still looks in scope — do not hunt here (15)
-  SMART_CONTRACT https://github.com/magiceden-oss/erc721m/...  archived 2025-01-15
-  WILDCARD     *.cryptopunks.app               archived 2025-06-25
+ARCHIVED but still looks in scope — do not hunt here (2)
+  SMART_CONTRACT https://github.com/example-org/contracts-runtime   archived 2025-01-15
+  WILDCARD     *.example-legacy.app            archived 2025-06-25
 
 OK — 2 payable asset(s)
 ```

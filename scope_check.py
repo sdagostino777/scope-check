@@ -12,10 +12,10 @@ workspace knows of, in opposite directions:
 This tool asks both questions. It prints the active, payable assets and, right
 under them, the archived ones that still look tempting.
 
-  python3 scope_check.py yuga_labs
-  python3 scope_check.py yuga_labs --json
-  python3 scope_check.py yuga_labs --grep borde
-  python3 scope_check.py yuga_labs --quiet        # only the verdict, for scripts
+  python3 scope_check.py example_program
+  python3 scope_check.py example_program --json
+  python3 scope_check.py example_program --grep borde
+  python3 scope_check.py example_program --quiet        # only the verdict, for scripts
 
 Exit codes: 0 = at least one active payable asset; 1 = none (do not hunt);
 2 = API or input error.
@@ -74,7 +74,7 @@ def classify(scopes):
 
 def main(argv):
     ap = argparse.ArgumentParser(add_help=True, description="Is this HackerOne asset active and payable today?")
-    ap.add_argument("handle", help="HackerOne programme handle, e.g. yuga_labs")
+    ap.add_argument("handle", help="HackerOne programme handle, e.g. example_program")
     ap.add_argument("--json", action="store_true", help="machine-readable output")
     ap.add_argument("--grep", default=None, help="only assets whose identifier contains this substring")
     ap.add_argument("--quiet", action="store_true", help="print only the verdict line")
